@@ -1,6 +1,31 @@
+// // core logic of the game
+// import swal from 'sweetalert';
+
 let humanScore = 0;
 let computerScore = 0;
+let roundMessage1 = "Coose your weapon"
+let roundMessage2 = "first to score 5 points wins game"
+let HumanChoosenSign = "?"
+let ComputerChoosenSign = "?"
 
+const playerSign = document.querySelector(".playerSign");
+const computerSign = document.querySelector(".computerSign");
+
+const playerResult = document.querySelector(".playerResult");
+const computerResult = document.querySelector(".computerResult");
+
+const roundMess1 = document.querySelector("#roundMess1");
+const roundMess2 = document.querySelector("#roundMess2");
+const roundResult = document.querySelector(".roundResult")
+
+
+
+// HumanCurrentScore = "Player: " + humanScore;
+// computerCurrentScore = "Computer: " + computerScore;
+
+// const roundMess1 = document.getElementById(roundMess1)
+// roundMess1.textContent = "roundMess1"
+// roundMess1.append(roundMess1)
 function getComputerChoice(){ 
     function getRandomInt(max) {
         return Math.floor(Math.random() * max);
@@ -15,69 +40,136 @@ function getComputerChoice(){
         return "scissor";
     }
 };
-// console.log(getComputerChoice());
 
-function getHumanChoice(){
-    let humanChoice = prompt("enter ur choice");
-    return humanChoice.toLowerCase()
-}
+const rockBtn = document.getElementById("rockBtn"); // Select button
+    rockBtn.addEventListener("click", ()=> playRound("rock")); // Assign new valu;
+const paperBtn = document.getElementById("paperBtn"); 
+    paperBtn.addEventListener("click", ()=>playRound("paper"));
+const scissorBtn = document.getElementById("scissorBtn");
+    scissorBtn.addEventListener("click", ()=> playRound("scissor"));
+    // return humanChoice
+// }
 
 
-// console.log(getHumanChoice())
 
-function playRound(){
-    const humanSelection = getHumanChoice();
-    const computerSelection = getComputerChoice();
+function playRound(humanSelection){
+    // let humanSelection = getHumanChoice();
+    let computerSelection = getComputerChoice();
     if(humanSelection=="rock"&&computerSelection=="rock"){
-        console.log("It's a tie! Rock ties with Rock");
+        roundMessage1 = "It's a tie!"
+        roundMessage2 = "Rock ties with Rock";
+        HumanChoosenSign = "✊";
+        ComputerChoosenSign = "✊";
     }
     else if (humanSelection=="rock"&&computerSelection=="paper") {
-        computerScore += 1;
-        console.log("You lose! Paper beats Rocks");
+        computerScore ++ ;
+        roundMessage1 = "You lose!" 
+        roundMessage2 = "Paper beats Rocks";
+        HumanChoosenSign = "✊";
+        ComputerChoosenSign = "✋";
     }
     else if (humanSelection=="rock"&&computerSelection=="scissor") {
-        humanScore += 1;
-        console.log("You Won! Rock beats Scissors");
+        humanScore ++;
+        roundMessage1 = "You Won!"
+        roundMessage2 = "Rock beats Scissors";
+        HumanChoosenSign = "✊";
+        ComputerChoosenSign = "✌";
     }
     else if (humanSelection=="paper"&&computerSelection=="paper") {
-        console.log("It's a tie! Paper ties with Paper");
+        roundMessage1 = "It's a tie!"
+        roundMessage2 = "Paper ties with Paper";
+        HumanChoosenSign = "✋";
+        ComputerChoosenSign = "✋";
     }
     else if (humanSelection=="paper"&&computerSelection=="scissor") {
-        computerScore += 1;
-        console.log("You Lose! Scissor beats Papers");
+        computerScore ++;
+        roundMessage1 = "You Lose!"
+        roundMessage2 = "Scissor beats Papers";
+        HumanChoosenSign = "✋";
+        ComputerChoosenSign = "✌";
     }
     else if (humanSelection=="paper"&&computerSelection=="rock") {
-        humanScore += 1;
-        console.log("You Won! Paper beats Scissors");
+        humanScore ++;
+        roundMessage1 = "You Won!"
+        roundMessage2 = "Paper beats Scissors";
+        HumanChoosenSign = "✋";
+        ComputerChoosenSign = "✊";
     }
     else if (humanSelection=="scissor"&&computerSelection=="scissor") {
-        console.log("It's a tie! Scissors ties with Scissors");
+        roundMessage1 = "It's a tie!";
+        roundMessage2 = "Scissors ties with Scissors";
+        HumanChoosenSign = "✌";
+        ComputerChoosenSign = "✌";
     }
     else if (humanSelection=="scissor"&&computerSelection=="paper") {
-        humanScore += 1;
-        console.log("You Won! Scissor beats Papers");
+        humanScore ++;
+        roundMessage1 = "You Won!";
+        roundMessage2 = "Scissor beats Papers";
+        HumanChoosenSign =  "✌";
+        ComputerChoosenSign = "✋";
     }
     else if (humanSelection=="scissor"&&computerSelection=="rock") {
-        computerScore += 1;
-        console.log("You Lose! Rock beats Scissors");
+        computerScore ++;
+        roundMessage1 = "You Lose!";
+        roundMessage2 = "Rock beats Scissors";
+        HumanChoosenSign =  "✌";
+        ComputerChoosenSign = "✊";
     }
-}
-// playRound = playRound(humanSelection,computerSelection);
+    playerSign.textContent = HumanChoosenSign
+    computerSign.textContent = ComputerChoosenSign
+    roundResult.textContent =  `Player: ${humanScore} Computer: ${computerScore}`;
+    roundMess1.textContent = roundMessage1
+    roundMess2.textContent = roundMessage2
 
-function playGame(){
-    let i = 0;
-    while(i++ < 5){
-        playRound();
-    }
-    if(humanScore > computerScore){
-        console.log("You won!");
-    }
-    else if(humanScore < computerScore){
-        console.log("You loss!");
-    }
-    else{
-        console.log("It's a tie!");
-    }
+    checkGameEnd();
+    // document.writeln(`Player: ${humanScore} Computer: ${computerScore}`);
+
 }
 
-console.log(playGame());
+function checkGameEnd(){ 
+    if(humanScore===5||computerScore===5)
+        {if(humanScore > computerScore){
+            swal("You Won!", "Play again", "success");
+        }
+        else if(humanScore < computerScore){
+            swal("You Loss!", "Play again", "error");
+        }
+        humanScore = 0;
+        computerScore = 0;
+}}
+
+// const body = document.body
+// const div = document.querySelector("div")
+
+roundMess1.textContent = roundMessage1
+roundMess2.textContent = roundMessage2
+
+
+playerSign.textContent = HumanChoosenSign
+computerSign.textContent = ComputerChoosenSign
+roundResult.textContent =  `Player: ${humanScore} Computer: ${computerScore}`;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

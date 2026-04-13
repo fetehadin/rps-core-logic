@@ -3,10 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="script.js"></script>
+    <title>rps-Arena</title>
+    <link rel="stylesheet" href="style.css">  
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,
+<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22>
+<text y=%22.9em%22 font-size=%2290%22>✊</text>
+</svg>">
+
 </head>
 <body>
-    
+    <div class="section">
+        <p>Rock Paper Scissors</p>
+        <p id="roundMess1"></p>
+        <p  id="roundMess2"></p>
+        <div class="currentSigns">
+            <div class="playerSign"></div>
+            <div class="computerSign"></div>
+        </div>
+        <div class="roundResult">
+            <div class="playerResult"></div>
+            <div class="computerResult"></div>
+        </div>
+        <div class="btns">
+            <button class="btn" id="rockBtn">✊ </button>
+            <button class="btn" id="paperBtn">✋</button>
+            <button class="btn" id="scissorBtn">✌</button>
+        </div>
+    </div>
+    <div class="footer">
+        <p>copyright &copy; 2026 FeteDev <a href="https://github.com/fetehadin/"><img src="image.png" alt="github-logo"></a></p>
+    </div>
+    <!-- <div class="roundResult"></div> -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script><script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>

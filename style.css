@@ -1,0 +1,159 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* FONT */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa, #e4ecf5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* TITLE */
+.section > p:first-child {
+    font-size: 70px;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 10px;
+}
+
+/* ROUND MESSAGES */
+#roundMess1 {
+    font-size: 50px;
+    font-weight: 600;
+    color: #4a5568;
+}
+
+#roundMess2 {
+    font-size: 25px;
+    color: #718096;
+    margin-bottom: 25px;
+}
+
+/* SIGNS (✊ ✋ ✌) */
+.currentSigns {
+    display: flex;
+    gap: 60px;
+    margin-bottom: 20px;
+}
+
+.playerSign,
+.computerSign {
+    width: 100px;
+    height: 100px;
+    font-size: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease;
+}
+
+.playerSign:hover,
+.computerSign:hover {
+    transform: scale(1.05);
+}
+
+/* SCORE */
+.roundResult {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.playerResult,
+.computerResult {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2d3748;
+    background: #ffffff;
+    padding: 10px 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.06);
+}
+
+/* BUTTONS */
+.btns {
+    display: flex;
+    gap: 20px;
+}
+
+.btn {
+    width: 80px;
+    height: 80px;
+    font-size: 32px;
+    border-radius: 16px;
+    border: none;
+    background: #ffffff;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* HOVER */
+.btn:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+}
+
+/* CLICK EFFECT (matches SweetAlert blue tone) */
+.btn:active {
+    background: #6bb6d9;
+    color: white;
+    transform: scale(0.95);
+}
+
+/* WIN / LOSE COLOR HINTS (optional later use) */
+.win {
+    color: #38a169; /* green */
+}
+
+.lose {
+    color: #e53e3e; /* red */
+}
+
+.footer {
+    position: absolute;
+    bottom: 20px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: #718096;
+    font-family: 'Poppins', sans-serif;
+}
+
+.footer p {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* GitHub icon */
+.footer img {
+    width: 22px;
+    height: px;
+    opacity: 0.7;
+    transition: all 0.2s ease;
+}
+
+/* Hover effect */
+.footer a:hover img {
+    opacity: 1;
+    transform: scale(1.2);
+}
